@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const VideoList = ({}) =>{
+const VideoList = ({List}) =>{
 
 
 
@@ -9,10 +9,15 @@ const VideoList = ({}) =>{
 
 
     return(
-      <div>
+       <>
+        {/* {List.map((i,vid) =>{
 
+        <div>
+          {vid[i].snippet.thumbnails.default}
+        </div>
 
-      </div>
+        })} */}
+       </>
     )
 }
 

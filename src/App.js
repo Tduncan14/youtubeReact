@@ -13,7 +13,8 @@ import VideoDetail from './Components/VideoDetail';
 
     
     this.state={
-        videos:[]
+        videos:[],
+        selectedVideo:null
     }
 
   }
@@ -27,11 +28,11 @@ import VideoDetail from './Components/VideoDetail';
 }});
     
 
-    console.log(response.data.items);
+     this.setState({videos:response.data.items,
+                    selectedVideo:response.data.items[0] });
 
 
-     var dataInformation = response.data.items;
-  
+     console.log(this.state);
 
    }
 
@@ -49,11 +50,12 @@ import VideoDetail from './Components/VideoDetail';
                          </Grid>
 
                         <Grid item xs={8}>
-                         <VideoDetail />
+                         <VideoDetail  Video ={this.state.selectedVideo}/>
                         </Grid>
 
                         <Grid item xs={4}>
-                            {/*video list */}
+                          <VideoList  List ={this.state.videos}  />
+
 
                         
 
