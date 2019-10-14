@@ -22,7 +22,7 @@ import VideoDetail from './Components/VideoDetail';
   handleSubmit = async(searchTerm) =>{
      
     const response = await Youtube.get('search',{params:{part:'snippet',
-    maxResults:10,
+    maxResults:5,
     key:'AIzaSyDW0mKRkFnWa26mvjazRlrBetmS3_IzhCI',
     q:searchTerm
 }});
@@ -36,33 +36,45 @@ import VideoDetail from './Components/VideoDetail';
 
    }
 
+   onVideoSelect =( video) =>{
+
+    this.setState({
+        selectedVideo:video
+    })
+
+
+
+   }
+
     render(){
 
 
         return(
             <>
              <Grid container spacing={10}>
-                 <Grid item xs={12}>
-                     <Grid container spacing={10}>
-
-                         <Grid item xs={12}>
+             <Grid item xs={12}>
                         <SearchBar onFormSubmit={this.handleSubmit}/>
                          </Grid>
 
+                 <Grid item xs={8}>
+                     <Grid container spacing={10}>
+
+                         
                         <Grid item xs={8}>
                          <VideoDetail  Video ={this.state.selectedVideo}/>
                         </Grid>
+                     </Grid>
 
-                        <Grid item xs={4}>
-                          <VideoList  List ={this.state.videos}  />
+
+                 </Grid>
+
+                 <Grid item xs={4}>
+                          <VideoList  List ={this.state.videos}  onVideoSelect={this.onVideoSelect} />
 
 
                         
 
                         </Grid>
-                     </Grid>
-
-                 </Grid>
 
              </Grid>
             </>
