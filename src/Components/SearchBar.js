@@ -16,15 +16,6 @@ class SearchBar extends  Component {
     //  this.handChange = this.handChange.bind(this);
    }
 
-   componentDidMount(){
-            const {onFormSubmit} = this.props;
-   
-
-    onFormSubmit('youtube');
-
- 
-  }
-
 
   handleSubmit = (e) => {
      const {searchTerm} = this.state;

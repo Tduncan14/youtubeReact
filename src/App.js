@@ -19,6 +19,13 @@ import VideoDetail from './Components/VideoDetail';
 
   }
 
+
+  componentDidMount(){
+
+
+    this.handleSubmit('Pokemon Sword')
+  }
+
   handleSubmit = async(searchTerm) =>{
      
     const response = await Youtube.get('search',{params:{part:'snippet',
@@ -26,7 +33,7 @@ import VideoDetail from './Components/VideoDetail';
     key:'AIzaSyDW0mKRkFnWa26mvjazRlrBetmS3_IzhCI',
     q:searchTerm
 }});
-    
+
 
      this.setState({videos:response.data.items,
                     selectedVideo:response.data.items[0] });
